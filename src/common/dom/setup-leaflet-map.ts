@@ -40,19 +40,34 @@ export const replaceTileLayer = (
   return tileLayer;
 };
 
+// const createTileLayer = (
+//   leaflet: LeafletModuleType,
+//   darkMode: boolean
+// ): TileLayer =>
+//   leaflet.tileLayer(
+//     `https://{s}.basemaps.cartocdn.com/${
+//       darkMode ? "dark_all" : "light_all"
+//     }/{z}/{x}/{y}${leaflet.Browser.retina ? "@2x.png" : ".png"}`,
+//     {
+//       attribution:
+//         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a>',
+//       subdomains: "abcd",
+//       minZoom: 0,
+//       maxZoom: 20,
+//     }
+//   );
+
 const createTileLayer = (
   leaflet: LeafletModuleType,
   darkMode: boolean
 ): TileLayer =>
   leaflet.tileLayer(
-    `https://{s}.basemaps.cartocdn.com/${
-      darkMode ? "dark_all" : "light_all"
-    }/{z}/{x}/{y}${leaflet.Browser.retina ? "@2x.png" : ".png"}`,
+    `https://map.pstatic.net/nrb/styles/${
+      darkMode ? "satellite" : "basic"
+    }/{z}/{x}/{y}.png?mt=bg.ol.ts.ar.lko`,
     {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: "abcd",
-      minZoom: 0,
-      maxZoom: 20,
+      minZoom: 6,
+      maxZoom: 19,
+      continuousWorld: true,
     }
   );
